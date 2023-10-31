@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: checkout
+      uses: actions/checkout@v2
+
     - name: build dockerfile
-      run: docker build -t response-app .
+      run:  docker build -t response-app .
 
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@master
