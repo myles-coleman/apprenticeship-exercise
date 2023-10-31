@@ -14,8 +14,8 @@ jobs:
       uses: actions/checkout@v2
 
     - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      with:
+        node-version: '16'
 
     - name: build dockerfile
       run:  docker build -t response-app .
