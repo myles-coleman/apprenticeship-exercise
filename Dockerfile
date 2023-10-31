@@ -14,7 +14,7 @@ RUN npm install
 COPY app.js .
 
 # Exposes the port that app.js uses
-EXPOSE 3000
+EXPOSE 80
 
 # Runs app.js when the container launches
 CMD ["node", "app.js"]
