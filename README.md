@@ -1,1 +1,1 @@
-"# apprenticeship-exercise" 
+"apprenticeship-exercise" 
