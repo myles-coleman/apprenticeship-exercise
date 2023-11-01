@@ -8,12 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      app:
-        image: response-app
-        ports:
-          - 80:80
-
     steps:
 
     - name: checkout
@@ -21,7 +15,7 @@ jobs:
 
     - uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '12'
 
     - name: build dockerfile
       run:  docker build -t response-app .
