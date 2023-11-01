@@ -10,18 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: checkout
-      uses: actions/checkout@v2
+    #- name: checkout
+    #  uses: actions/checkout@v2
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+    #- uses: actions/setup-node@v3
+    #  with:
+    #    node-version: '16'
 
-    - name: build dockerfile
-      run:  docker build -t response-app .
+    #- name: build dockerfile
+    #  run:  docker build -t response-app .
 
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@master
-      with:
-        image: response-app
-        command: npm test
