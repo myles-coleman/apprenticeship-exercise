@@ -8,6 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      app:
+        image: response-app
+        ports:
+          - 80:80
+
     steps:
 
     - name: checkout
