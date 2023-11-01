@@ -21,5 +21,5 @@ jobs:
       run:  docker build -t response-app .
 
     - name: run tests
-      uses: liatrio/github-actions/apprentice-action@846cb493723b68128e97a632d723e66e89c516ed
+      uses: liatrio/github-actions/apprentice-action@808117af9b4a1e57c4cb79dbcb2d25de5ea3c68d
       
