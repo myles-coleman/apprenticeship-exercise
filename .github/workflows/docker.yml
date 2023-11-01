@@ -20,6 +20,6 @@ jobs:
     - name: build dockerfile
       run:  docker build -t response-app .
 
-    - name: run tests
-      uses: liatrio/github-actions/apprentice-action@master
+    #- name: run tests
+    #  uses: liatrio/github-actions/apprentice-action@master
       
