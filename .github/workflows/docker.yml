@@ -21,7 +21,7 @@ jobs:
       run:  docker build -t response-app .
 
     - name: run application
-      run: sudo docker run -p 80:80 response-app
+      run:  sudo docker run -d -p 80:80 response-app
 
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@808117af9b4a1e57c4cb79dbcb2d25de5ea3c68d
