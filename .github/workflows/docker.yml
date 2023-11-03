@@ -101,7 +101,7 @@ jobs:
       - name: Pull from Docker Hub
         run: |-
           docker pull beebecomebigbee/apprenticeship-exercise:main
-
+ 
       - name: Push to Artifact Registry
         run: |-
           docker push \
