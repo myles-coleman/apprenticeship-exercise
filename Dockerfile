@@ -1,4 +1,4 @@
-# Using node:16 as base image
+# Using node:12 as base image
 FROM node:12
 
 # Set the working directory to /app
