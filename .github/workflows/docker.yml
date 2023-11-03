@@ -64,6 +64,10 @@ jobs:
     env:
       PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
       GAR_LOCATION: ${{ secrets.GAR_LOCATION }}
+      WIF_PROVIDER: ${{ secrets.WIF_PROVIDER }}
+      WIF_SERVICE_ACCOUNT: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+      CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+      CLUSTER_ZONE: ${{ secrets.CLUSTER_ZONE }}
     needs: push_to_registry
     steps:
       
