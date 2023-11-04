@@ -98,7 +98,7 @@ jobs:
         run: |-
           gcloud container clusters get-credentials ${{ env.CLUSTER_NAME }} --zone ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_ID }}
  
-      #- name: Pull from Docker Hub
+      #- name: Pull from Docker Hub 
       #  run: |-
       #    docker pull beebecomebigbee/apprenticeship-exercise:main
 
