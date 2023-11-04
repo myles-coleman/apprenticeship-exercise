@@ -108,8 +108,8 @@ jobs:
 
       - name: Apply Deployment Server
         run: |-
-          kubectl apply deployment app-server \
-          --image=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise
+          kubectl set image deployment/app-server \
+          app-server=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise
 
       - name: Expose Deployment Server
         run: |-
