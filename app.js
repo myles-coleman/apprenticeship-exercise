@@ -6,7 +6,8 @@ app.get('/', (req, res) => {
 	let time = Date.now();
 	const response = {
 		"message": "My name is Myles Coleman",
-		"timestamp": time
+		"timestamp": time,
+		"ip": req.ip,
 	}
   	res.send(response)
 })
