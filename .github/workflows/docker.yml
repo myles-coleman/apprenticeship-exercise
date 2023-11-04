@@ -124,7 +124,7 @@ jobs:
 
       - name: Expose Deployment Server
         run: |-
-          kubectl expose deployment app-deployment \
+          kubectl expose deployment apprenticeship-exercise \
           --type=LoadBalancer \
           --port 80 \
           --target-port 80
