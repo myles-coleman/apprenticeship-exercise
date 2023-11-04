@@ -94,13 +94,13 @@ jobs:
         run: |-
           gcloud auth configure-docker ${{ env.GAR_LOCATION }}-docker.pkg.dev
 
-      #- name: build dockerfile
-      #  run:  docker build -t ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main .
+      - name: build dockerfile
+        run:  docker build -t ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main .
 
       - name: Push to Artifact Registry
         run: |-
           docker push \
-          apprenticeship-exercise:main
+          ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
 
       - name: Install Google Cloud SDK
         run: |
