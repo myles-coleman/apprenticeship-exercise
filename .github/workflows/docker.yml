@@ -96,11 +96,14 @@ jobs:
       
       - name: Get GKE credentials
         run: |-
-          gcloud container clusters get-credentials ${{ env.CLUSTER_NAME }} --zone ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_ID }} --log-http
+          gcloud container clusters get-credentials ${{ env.CLUSTER_NAME }} --zone ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_ID }}
  
       - name: Pull from Docker Hub
         run: |-
           docker pull beebecomebigbee/apprenticeship-exercise:main
+
+      - name: build dockerfile
+        run:  docker build -t us-central1-docker.pkg.dev/northern-gasket-403822/docker-repo/apprenticeship-exercise:main .
 
       - name: Push to Artifact Registry
         run: |-
