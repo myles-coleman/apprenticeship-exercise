@@ -127,4 +127,4 @@ jobs:
           kubectl expose deployment apprenticeship-exercise \
           --type=LoadBalancer \
           --port 80 \
-          --target-port 80
+          --target-port 80 
