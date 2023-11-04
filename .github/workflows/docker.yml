@@ -112,7 +112,7 @@ jobs:
       - name: Install GKE-Auth plugin
         run: |-
           sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
-
+ 
       - name: Get GKE credentials
         run: |-
           gcloud container clusters get-credentials ${{ env.CLUSTER_NAME }} --zone ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_ID }}
