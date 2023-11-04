@@ -102,6 +102,11 @@ jobs:
           docker push \
           ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
 
+      - name: Pull from Artifact Registry
+        run: |-
+          docker pull \
+          ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
+
       - name: Install Google Cloud SDK
         run: |
           echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
