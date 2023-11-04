@@ -98,17 +98,17 @@ jobs:
         run: |-
           gcloud container clusters get-credentials ${{ env.CLUSTER_NAME }} --zone ${{ env.CLUSTER_ZONE }} --project ${{ env.PROJECT_ID }}
  
-      - name: Pull from Docker Hub
-        run: |-
-          docker pull beebecomebigbee/apprenticeship-exercise:main
+      #- name: Pull from Docker Hub
+      #  run: |-
+      #    docker pull beebecomebigbee/apprenticeship-exercise:main
 
       - name: build dockerfile
-        run:  docker build -t us-central1-docker.pkg.dev/northern-gasket-403822/docker-repo/apprenticeship-exercise:main .
+        run:  docker build -t ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main .
 
       - name: Push to Artifact Registry
         run: |-
           docker push \
-          ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise
+          ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
 
       - name: Apply Deployment Server
         run: |-
