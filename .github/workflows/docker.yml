@@ -72,7 +72,7 @@ jobs:
       WIF_SERVICE_ACCOUNT: ${{ secrets.WIF_SERVICE_ACCOUNT }}
       CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
       CLUSTER_ZONE: ${{ secrets.CLUSTER_ZONE }}
-    needs: push_to_registry
+    needs: build
     steps:
 
       - name: checkout
@@ -122,9 +122,9 @@ jobs:
           kubectl set image deployment/apprenticeship-exercise \
           apprenticeship-exercise=${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise
 
-      - name: Expose Deployment Server
-        run: |-
-          kubectl expose deployment apprenticeship-exercise \
-          --type=LoadBalancer \
-          --port 80 \
-          --target-port 80 
+      #- name: Expose Deployment Server
+      #  run: |-
+      #    kubectl expose deployment apprenticeship-exercise \
+      #    --type=LoadBalancer \
+      #    --port 80 \
+      #    --target-port 80 
