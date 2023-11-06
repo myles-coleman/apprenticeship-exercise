@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: apprenticeship-exercise-deployment
+  name: apprenticeship-exercise
   labels:
     app: apprenticeship-exercise
 
