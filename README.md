@@ -32,17 +32,9 @@ Start the application:
 npm start
 ```
 
-## Deployment
-
-The application is deployed to Google Cloud Kubernetes Engine using the image from Docker Hub. The deployment workflow automatically deploys the application to the cloud platform when changes are made to the main branch of the repository.
-
 ## How to Use
 
 Once you have the project up and running, you can interact with the HTTP API endpoint to retrieve the JSON object with a custom message and a dynamically generated timestamp.
-
-## Retrieve JSON Object
-
-To retrieve the JSON object, make a GET request to the endpoint. You can use a tool like curl or Postman to make the request, or you can use your web browser.
 
 ### Using curl
 
