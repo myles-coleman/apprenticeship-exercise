@@ -7,7 +7,9 @@ app.get('/', (req, res) => {
 	const response = {
 		"message": "My name is Myles Coleman",
 		"timestamp": time,
-		"hostname": req.hostname,
+		//"hostname": req.hostname,
+		"method": req.method,
+
 	}
   	res.send(response)
 })
