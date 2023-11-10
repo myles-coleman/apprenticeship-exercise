@@ -92,12 +92,12 @@ jobs:
           gcloud auth configure-docker ${{ env.CLUSTER_ZONE }}-docker.pkg.dev
 
       - name: build dockerfile
-        run:  docker build -t ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main .
+        run:  docker build -t ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:v2 .
 
       - name: Push to Artifact Registry
         run: |-
           docker push \
-          ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
+          ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:v2
 
       - name: Install Google Cloud SDK
         run: |
@@ -121,7 +121,7 @@ jobs:
       - name: Update Deployment Server
         run: |-
           kubectl set image deployment/apprenticeship-exercise \
-          apprenticeship-exercise=${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
+          apprenticeship-exercise=${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:v2
 
       #- name: Expose Deployment Server
       #  run: |-
