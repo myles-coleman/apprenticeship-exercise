@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: apprenticeship-exercise
-          image: us-central1-docker.pkg.dev/northern-gasket-403822/docker-repo/apprenticeship-exercise:v2
+          image: us-central1-docker.pkg.dev/northern-gasket-403822/docker-repo/apprenticeship-exercise:main
           imagePullPolicy: Always
           ports:
             - containerPort: 80
