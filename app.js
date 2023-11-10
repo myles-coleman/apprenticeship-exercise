@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 		"timestamp": time,
 		"hostname": req.hostname,
 		//"method": req.method,
-
+ 
 	}
   	res.send(response)
 })
