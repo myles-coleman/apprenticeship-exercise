@@ -23,11 +23,17 @@ jobs:
       with:
         node-version: '12'
 
+    - name: Get the short SHA of the commit
+      id: get_sha
+      env:
+        GITHUB_SHA: ${{ github.sha }}
+      run: echo "SHA=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
+      
     - name: build dockerfile
-      run:  docker build -t response-app .
+      run:  docker build -t response-app:${{ env.SHA }} .
 
     - name: run application
-      run:  sudo docker run -d -p 80:80 response-app
+      run:  sudo docker run -d -p 80:80 response-app:${{ env.SHA }}
 
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@808117af9b4a1e57c4cb79dbcb2d25de5ea3c68d
@@ -51,7 +57,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: beebecomebigbee/apprenticeship-exercise
+          images: beebecomebigbee/apprenticeship-exercise:${{ env.SHA }}
     
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -92,12 +98,12 @@ jobs:
           gcloud auth configure-docker ${{ env.CLUSTER_ZONE }}-docker.pkg.dev
 
       - name: build dockerfile
-        run:  docker build -t ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main .
+        run:  docker build -t ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:${{ env.SHA }} .
 
       - name: Push to Artifact Registry
         run: |-
           docker push \
-          ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
+          ${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:${{ env.SHA }}
 
       - name: Install Google Cloud SDK
         run: |
@@ -121,11 +127,4 @@ jobs:
       - name: Update Deployment Server
         run: |-
           kubectl set image deployment/apprenticeship-exercise \
-          apprenticeship-exercise=${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:main
-
-      #- name: Expose Deployment Server
-      #  run: |-
-      #    kubectl expose deployment apprenticeship-exercise \
-      #    --type=LoadBalancer \
-      #    --port 80 \
-      #    --target-port 80 
+          apprenticeship-exercise=${{ env.CLUSTER_ZONE }}-docker.pkg.dev/${{ env.PROJECT_ID }}/docker-repo/apprenticeship-exercise:${{ env.SHA }}
