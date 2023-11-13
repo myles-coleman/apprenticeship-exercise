@@ -71,7 +71,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.SHA }}
           labels: ${{ steps.meta.outputs.labels }}
 
   push_to_GKE:
