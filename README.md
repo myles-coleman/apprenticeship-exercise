@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a simple web application which exposes a HTTP API endpoint and uses a CI/CD pipeline to containerize and deploy it to a cloud platform. The application returns a JSON object with a custom message and a dynamically generated timestamp. Current deployment endpoint: http://34.171.131.255/
+This project is a simple web application which exposes a HTTP API endpoint and uses a CI/CD pipeline to containerize and deploy it to a cloud platform. The application returns a JSON object with a custom message and a dynamically generated timestamp.
 
 ## Getting Started
 
